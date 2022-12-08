@@ -1,10 +1,11 @@
 
 const mongoose = require('mongoose');
+const cors = require('cors');
 const users = require('./models/users')
 const reviews = require('./models/reviews')
 const Subscription = require('./models/subscription')
 const product = require('./routes/music.route');
-    mongoose.connect('mongodb://127.0.0.1:27017/melophile', { useNewUrlParser: true,  useUnifiedTopology: true })
+    mongoose.connect('mongodb+srv://sravansatish2509:hcA0eYyzlgvtXBKU@cluster.qlgrnaj.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true,  useUnifiedTopology: true })
     .then(() => { console.log("connected"); })
     .catch((err) => { console.log("error connecting", err); });
 
@@ -13,6 +14,7 @@ const app = express();
 const bodyParser  = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(cors({origin: '*'}));
 
 
 app.use((req, res, next) => {
@@ -208,5 +210,5 @@ subscription.save()
 });  
 app.use('/playlist', product);
 
-app.listen(8000,()=>{ console.log('Listening')})    
+app.listen(process.env.PORT ||8000,()=>{ console.log('Listening')})    
 module.exports=app;

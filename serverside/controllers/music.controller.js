@@ -8,7 +8,7 @@ exports.music_details = function (req,res,next,) {
         music.forEach(element => {
             data.push(element)
         });
-        
+        console.log(data)
         res.send(JSON.stringify(data));
     })
 
