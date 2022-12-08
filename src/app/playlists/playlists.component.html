@@ -1,0 +1,127 @@
+<!-- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#ffffff" type="ball-beat" [fullScreen]="true"><br>
+    <p style="color: white"> Loading... </p>
+  </ngx-spinner> -->
+
+  <div class="sideNavBar">
+    <a href="/Open">Home</a>
+    <a href="/playlists">Playlists</a>
+    <a href="/subscriptions">Subscription</a>
+    <a href="/reviews">Reviews</a>
+</div>
+<div style="margin-left:20%">
+  <div class="main-container">
+    <h4>Top Playlist(s)</h4>
+    <div class="cards-container">
+      <div  *ngFor="let playlist of topPlaylist,let i=index">
+          <div class="card" (click)="changeplaylist(i,'top')">{{playlist}}</div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <div style="display: flex;flex-direction: row;">
+    <button  class="btn" (click)="changeplaylist(-2,'all')">View all songs</button>
+  <button *ngIf="show" class="btn" (click)="changeplaylist(-1,'new');show=false">Create New
+    Playlist</button>
+  </div>
+
+  <br>
+  <div class="main-container" *ngIf="playlistnames.length>0">
+    <h4>Your Playlist(s)</h4>
+    <div class="cards-container">
+
+      <div *ngFor="let playlist of playlistnames,let i=index">
+        <div class="card" (click)="changeplaylist(i,'my')">{{playlist}}</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div style="margin-left: 50px;">
+    <div *ngIf="!show">
+    <input type="text" placeholder="Enter Playlist Name" [(ngModel)]="newplaylist" *ngIf="text=='List of songs'">
+
+    <button *ngIf="text=='List of songs'" class="btn"  (click)="validate()">Select Existing</button>
+    <p *ngIf="error" style="color:red;font-size: 10px;">Please enter a Playlist Name</p>
+    </div>
+  <div *ngIf="show">
+
+  <h2 style="margin-bottom: 20px ;" >{{text}}</h2>
+  <div style="display: flex;flex-direction: row;">
+  <button
+    *ngIf="text!=topPlaylist[0] && text!=topPlaylist[1] && text!=topPlaylist[2] && text!=topPlaylist[3] && text!='List of songs' && !showplus"
+    class="btn" (click)="showplus=true;changeplaylistsong('text')">Add song(s) to {{text}}</button>
+    <button
+      *ngIf="text!=topPlaylist[0] && text!=topPlaylist[1] && text!=topPlaylist[2] && text!=topPlaylist[3] && text=='List of songs' && !showplus"
+      class="btn" (click)="upload=true;Song_Title='';Song_URL='';Albam_Title='';Playlist_name=''" >upload a song</button>
+    <button
+      *ngIf="text!=topPlaylist[0] && text!=topPlaylist[1] && text!=topPlaylist[2] && text!=topPlaylist[3] && text!='List of songs' && !showplus"
+      class="btn" (click)="deletePlaylist()">Delete Playlist</button>
+  <button
+    *ngIf="text!=topPlaylist[0] && text!=topPlaylist[1] && text!=topPlaylist[2] && text!=topPlaylist[3] && text!='List of songs' && showplus && newplaylist==''"
+    class="btn" (click)="changeplaylist(currentindex,'my')">Back</button>
+    <button class="btn"*ngIf="text!=topPlaylist[0] && text!=topPlaylist[1] && text!=topPlaylist[2] && text!=topPlaylist[3] && text!='List of songs' && newplaylist!='' && showplus" (click)="reload()">back</button>
+  </div>
+   <div *ngIf="upload">
+
+    <div class="uploadcontainer">
+      <form action="">
+        <h1 style="margin: 0px auto">upload New Song</h1>
+      <div class="form-group">
+        <label >Song Name</label>
+        <input type="text" class="form-control" placeholder="Song Name" [ngModelOptions]="{standalone: true}" [(ngModel)]="Song_Title">
+      </div>
+      <div class="form-group">
+        <label>Songurl(.mpeg)</label>
+        <input type="text" class="form-control" placeholder="Song url" [ngModelOptions]="{standalone: true}" [(ngModel)]="Song_URL">
+      </div>
+      <div class="form-group">
+        <label>Album Name</label>
+        <input type="text" class="form-control" placeholder="Album Name" [ngModelOptions]="{standalone: true}" [(ngModel)]="Albam_Title">
+      </div>
+      <div class="form-group">
+        <label>Playlist Name</label>
+        <input type="text" class="form-control" placeholder="Playlist Name" [ngModelOptions]="{standalone: true}" [(ngModel)]="Playlist_name">
+      </div>
+      <div *ngIf="error" style="color: red;font-size:14px">*Please fill all Details</div>
+      <button class="btn" (click)="UploadSongDB()"> upload</button>
+      <button class="btn" (click)="upload=false;Song_Title='';Song_URL='';Albam_Title='';Playlist_name=''">close</button>
+      </form>
+    </div>
+
+   </div>
+  <div  *ngFor="let song of cplaylist;let i=index">
+  <div class="songcontainer">
+    <div class="songavatar">
+      <div style="width: 50px;height: 50px;border-radius: 50%" [style.background-color]="color[i]"></div>
+    </div>
+    <div class="songdetails">
+      <div class="songlabel">
+        <h4>Album Title : {{song.Albam_Title}}-{{i}}</h4>
+        <h6> Song Name : {{song.Song_Title}}</h6>
+
+      </div>
+      <div class="songaction">
+        <img *ngIf="showplus" src="../../../../assets/addplaylist.png" (click)="AddSongToPlaylist(i)"
+          style="width:30px;height:30px;margin-top:10px;margin-right: 10px;" alt="">
+        <audio controls >
+          <source [src]="song.Song_Url" type="audio/mpeg" />
+        </audio >
+        <img *ngIf="text!=topPlaylist[0] && text!=topPlaylist[1] && text!=topPlaylist[2] && text!=topPlaylist[3] && text!='List of songs' && !showplus" src="../../../../assets/delete.png" (click)="deleteSongFromPlaylist(i)"
+          style="width:20px;height:20px;margin-top:10px;margin-right: 10px;margin-left:10px ;" alt="">
+        <img
+          *ngIf="text!=topPlaylist[0] && text!=topPlaylist[1] && text!=topPlaylist[2] && text!=topPlaylist[3] && text=='List of songs' && !showplus"
+          src="../../../../assets/delete.png" (click)="deleteSongFromDB(i)"
+          style="width:20px;height:20px;margin-top:10px;margin-right: 10px;margin-left:10px ;" alt="">
+      </div>
+    </div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+</div>

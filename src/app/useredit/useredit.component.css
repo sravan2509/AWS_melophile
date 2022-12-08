@@ -1,0 +1,74 @@
+.loginForm {
+    width: 52%;
+    margin-left: 26%;
+  }
+  
+  .loginFormLabel {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+  
+  .loginButton {
+    background-color: #63C4ED;
+    color: white;
+    text-decoration: solid;
+    padding: 12px 21px;
+    margin: 2% 0 0 76%;
+    width: 24%;
+  }
+  .signupButton {
+    background-color: #63C4ED;
+    color: white;
+    text-decoration: solid;
+    padding: 16px 22px;
+    margin: 0 0 0 26%;
+    width: 52%;
+  } 
+  .seperateSection
+  {
+  margin: 12px 0px 20px;
+  flex: 1 1 0%;
+  }
+  .signUpText
+  {
+  padding: 15px 21px;
+  text-align: center;
+  }
+  .logoImage {
+    width: 14%;
+    margin-left: 44%;
+    margin-top: 4%;
+  }
+  
+  .registrationForm{
+  margin-left: 35%;
+  }
+  
+  .registrationFormLabel{
+  width: 146%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  }
+  
+  .registrationLogoImage{
+  width: 20%;
+  margin-left: 26%;
+  }
+  
+  .registrationBtn{
+  background-color: #63C4ED;
+  color: white;
+  text-decoration: solid;
+  padding: 16px 22px;
+  margin: 1% 0px 0px 17%;
+  }
+  
+  .song{
+  margin-left: 46%;
+  margin-top: 10%;
+  }

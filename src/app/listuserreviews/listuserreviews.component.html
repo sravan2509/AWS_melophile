@@ -1,0 +1,10 @@
+
+
+<div>
+    <ul *ngFor ="let review of rev let i = index">
+        <li> {{review._id}}: {{review.firstName}} (index {{i}})
+            <button mat-button color="warn" (click)="onDelete(review._id)">DELETE</button>
+            <button mat-button color="accent" [routerLink]="['/editReview', review._id]">UPDATE</button>
+        </li>
+    </ul>
+</div>

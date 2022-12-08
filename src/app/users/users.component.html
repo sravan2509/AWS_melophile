@@ -1,0 +1,99 @@
+<div class="content" style = "margin-top:50px;">
+
+    <div>
+        <img class="logoImage" src="../assets/Tune-In-logos_black.png" alt="Logo">
+    </div>
+
+    <!-- <form id="login_screen" class="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="userName"><b>Username : </b></label>
+            <input class = "loginFormLabel" type="text" name="userName" required>
+
+            <label for="password"><b>Password : </b></label>
+            <input class = "loginFormLabel" type="password" name="password" required>
+
+            <button class="loginButton" type="submit">Login</button>
+        </div>
+        <div>
+            <span><a href="#"> Forgot password?</a></span>
+        </div>
+        <hr class = "seperateSection">
+
+    </form>
+    <div id="login_screen_text">
+        <p class = "signUpText" ><strong>Don't have an account ?</strong></p>
+        <button onclick="document.getElementById('login_screen_text').style.display = 'none'; document.getElementById('login_screen').style.display = 'none'; document.getElementById('registration_form').style.display = 'block';"  class="signupButton">Sign-Up for Tune-In</button>
+    </div> -->
+<div style="color: red;">{{error_message}}</div>
+
+
+    <form id="registration_form" class="registrationForm" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div>
+            <tr>
+                <td>
+                    <label for="first-name"><b>First Name<span style="color: red;">*</span> : </b></label>
+                    <input matInput id="first-name" class = "registrationFormLabel" type="text" [(ngModel)]="firstName" formControlName="firstName" required>
+
+                </td>
+            </tr>
+            <!-- <h2 style="margin-left: 26%;">Registration Form</h2> -->
+            <tr>
+                <td>
+                    <label for="last-name"><b>Last Name<span style="color: red;">*</span> : </b></label>
+                    <input matInput id="last-name" class = "registrationFormLabel" type="text" [(ngModel)]="lastName" formControlName="lastName" required>
+
+                </td>
+            </tr>
+           <tr>
+                <td>
+                    <label for="email"><b>Email<span style="color: red;">*</span> : </b></label>
+                    <input matInput id="email" class = "registrationFormLabel" type="text" [(ngModel)]="email" formControlName="email" required>
+
+                </td>
+            </tr>
+         <tr>
+                <td>
+                    <label for="phoneNumber"><b>Phone Number<span style="color: red;">*</span> : </b></label>
+                    <input matInput id="phoneNumber" class = "registrationFormLabel" type="phoneNumber" [(ngModel)]="phoneNumber" formControlName="phoneNumber" required>
+
+
+                </td>
+            </tr>
+          </div>
+        <div class="text-center">
+            <button class="registrationBtn" type="submit" Text-align: center>Get into Melophile </button>
+        </div>
+    </form>
+
+</div>
+<div id="login_screen_text" style="margin-left: 37%;">
+    <span class = "signUpText" ><strong>Sign in as admin : </strong></span>
+    <button onclick="document.getElementById('login_screen_text').style.display = 'none'; document.getElementById('registration_form').style.display = 'none'; document.getElementById('login_screen').style.display = 'block';"  class="signupButton">Sign-In</button>
+</div>
+
+<form style="display: none;"  id="login_screen" class="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+        <h5>Note: You can only sign-In if you are admin</h5>
+        <!-- <input type="text" (keyup)="getVal($event)"/> -->
+        <!-- <h2>{{currentVal}}</h2> -->
+
+        <!-- <input #userName type="text" (change) = "setNewUserName(userName.value)"/> -->
+
+        <label for="userName"><b>Username : </b></label>
+        <input #userName class = "loginFormLabel" type="text" name="userName" (change) = "setUserName(userName.value)" required>
+
+        <label for="password"><b>Password : </b></label>
+        <input #password class = "loginFormLabel" type="password" name="password" (change) = "setPassword(password.value)" required>
+
+<!--
+        <ng-template [ngIf]="loginUsername == adminLoginUsername && loginPassword == adminLoginPassword"><div>Content to render when condition is
+            true.</div></ng-template> -->
+
+        <!-- <button class="loginButton" type="submit">Login</button> -->
+        <button type="button" class="loginButton"  (click)="loginBtnClick();" > Login</button>
+
+    </div>
+
+    <hr class = "seperateSection">
+
+</form>

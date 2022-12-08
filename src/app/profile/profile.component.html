@@ -1,0 +1,94 @@
+<div class="content">
+
+<div class="sideNavBar">
+    <a href="/Open">Home</a>
+    <a href="/playlists">Playlists</a>
+    <a href="/subscriptions">Subscription</a>
+    <a href="/reviews">Reviews</a>
+</div> 
+
+<!-- <div class="profileContent">
+    <ul *ngFor ="let user of users let i = index">
+         <li> {{user._id}}: {{user.firstName}} {{user.lastName}} (index {{i}}) 
+    <div class="profileTitle">Account Overview</div>
+    <div class="profileSubTitle">Profile</div>
+    <table class="myProfile">
+        <tbody>
+            <tr>
+                <td>First Name</td>
+                <td class="myProfileData" placeholder="Vi" type="text"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td class="myProfileData"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td class="myProfileData"></td>
+            </tr>
+            <tr>
+                <td>phoneNumber</td>
+                <td class="myProfileData"></td>
+            </tr>
+            <tr>
+                <td><a href="/myProfile" class="myProfileEditBtn">Edit</a></td>
+                <td><a href="/myProfile" class="myProfileDeleteBtn">Delete</a></td> 
+                <td><button mat-button color="accent" class="myProfileDeleteBtn" [routerLink]="['/editUser', user._id]">Edit</button></td>
+                <td><button mat-button color="warn" class="myProfileEditBtn" (click)="onDelete(user._id)">Delete</button></td>
+                 <button mat-button color="warn" (click)="onDelete(user._id)">DELETE</button>
+                <button mat-button color="accent" [routerLink]="['/editUser', user._id]">UPDATE</button> 
+            </tr>
+        </tbody>
+    </table>
+    </li> 
+    </ul>
+</div>  -->
+
+
+<form id="registration_form" class="registrationForm" [formGroup]="registrationForm">
+    <!-- <ul *ngFor ="let user of users let i = index"> -->
+        <div class="profileTitle">Account Overview</div>
+        <div>
+            <img width="100" class="logoImage" src="../assets/Tune-In-logos_black.png" alt="Logo">
+        </div>
+        <!-- <div class="profileSubTitle">Profile</div> -->
+    <table>
+        <tr>
+        <!-- <h2 style="margin-left: 26%;">Registration Form</h2> -->
+        <td><label for="first-name"><b>First Name : </b></label></td>
+        <td><input id="first-name" class = "registrationFormLabel" type="text" placeholder= {{users[users.length-1].firstName}} disabled></td>
+    </tr>
+    <tr>
+        <td><label for="last-name"><b>Last Name : </b></label></td>
+        <td> <input id="last-name" class = "registrationFormLabel" type="text" placeholder= {{users[users.length-1].lastName}} disabled></td>
+    </tr>
+<tr>
+    <td>
+        <label for="email"><b>Email : </b></label>
+
+    </td>
+    <td>
+        <input id="email" class = "registrationFormLabel" type="text" placeholder= {{users[users.length-1].email}} disabled>
+
+    </td>
+</tr>
+    <tr>
+        <td>
+            <label for="phoneNumber"><b>Phone Number : </b></label>
+
+        </td>
+        <td>
+            <input id="phoneNumber" class = "registrationFormLabel" type="phoneNumber" placeholder= {{users[users.length-1].phoneNumber}} disabled>
+
+        </td>
+    </tr>
+    </table>
+    <div>
+        <td><button mat-button color="accent" class="myProfileDeleteBtn" [routerLink]="['/editUser', users[users.length-1]._id]">Edit</button></td>
+        <td><button mat-button color="warn" class="myProfileEditBtn" (click)="onDelete(users[users.length-1]._id)">Delete</button></td>
+        <!-- <button class="registrationBtn" type="submit">Register</button> -->
+    </div>
+    <!-- </ul> -->
+</form>
+</div>
+

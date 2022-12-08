@@ -1,0 +1,40 @@
+<div>
+    <img class="logoImage" src="../assets/Tune-In-logos_black.png" alt="Logo">
+</div> 
+
+<form id="registration_form" class="registrationForm" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div>
+        <tr>
+            <td>
+                <label for="first-name"><b>First Name : </b></label>
+                <input matInput id="first-name" class = "registrationFormLabel" type="text" [(ngModel)]="firstName" formControlName="firstName" required>
+               
+            </td>
+        </tr>
+        <!-- <h2 style="margin-left: 26%;">Registration Form</h2> -->
+       <tr>
+            <td>
+                <label for="last-name"><b>Last Name : </b></label>
+                <input matInput id="last-name" class = "registrationFormLabel" type="text" [(ngModel)]="lastName" formControlName="lastName" required>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email"><b>Email : </b></label>
+                <input matInput id="email" class = "registrationFormLabel" type="text" [(ngModel)]="email" formControlName="email" required>
+                
+            </td>
+        </tr>
+      <tr>
+            <td>
+                <label for="phoneNumber"><b>Phone Number : </b></label>
+                <input matInput id="phoneNumber" class = "registrationFormLabel" type="text" [(ngModel)]="phoneNumber" formControlName="phoneNumber" required>
+            
+            </td>
+        </tr>
+      </div>
+    <div>
+        <button class="registrationBtn" type="submit">Update the Profile</button>
+    </div>
+</form>

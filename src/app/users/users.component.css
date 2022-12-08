@@ -1,0 +1,85 @@
+body{
+  background-image: url('/assets/images/background_image_home.png') !important;
+  background-image: url('/assets/images/music_note.jpg') !important;
+
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+.loginForm {
+    width: 52%;
+    margin-left: 26%;
+  }
+
+  .loginFormLabel {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+
+  .loginButton {
+    background-color: #63C4ED;
+    color: white;
+    text-decoration: solid;
+    padding: 12px 21px;
+    margin: 2% 0 0 76%;
+    width: 24%;
+  }
+  .signupButton {
+    background-color: #63C4ED;
+    color: white;
+    text-decoration: solid;
+    padding: 16px 22px;
+    width: 17%;
+  }
+  .seperateSection
+  {
+  margin: 12px 0px 20px;
+  flex: 1 1 0%;
+  }
+  .signUpText
+  {
+  padding: 15px 21px;
+  text-align: center;
+  }
+  .logoImage {
+    width: 14%;
+    margin-left: 49%;
+    margin-top: 4%;
+  }
+
+  .registrationForm{
+    float: right;
+  }
+
+  .registrationFormLabel{
+    width: 146%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+
+  .registrationLogoImage{
+  width: 20%;
+  margin-left: 26%;
+  }
+
+  .registrationBtn{
+  background-color: #63C4ED;
+  color: white;
+  text-decoration: solid;
+  padding: 16px 22px;
+  margin: 8px 0px 26px 130px;
+  }
+
+  .song{
+  margin-left: 46%;
+  margin-top: 10%;
+  }
+
+  .text-center {
+    text-align: center;
+  }

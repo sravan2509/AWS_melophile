@@ -1,0 +1,98 @@
+<div class="sideNavBar">
+    <a href="/Open">Home</a>
+    <a href="/playlists">Playlists</a>
+    <a href="/subscriptions">Subscription</a>
+    <a href="/reviews">Reviews</a>
+</div>
+
+<div class="content">
+<!-- 
+  <button class="newBtn" type="submit">New Review</button>
+
+  <button class="viewBtn" type="submit">View All Reviews</button> -->
+    
+    <h1 id="fh2">WE APPRECIATE YOUR REVIEW!</h1>
+    <h6 id="fh6">Your review will help us to ensure a top quality customer service to all of our users.</h6>
+    
+    
+    <form id="feedback" action="" [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+      <div class="pinfo">Enter your personal information</div>
+      
+    <div class="form-group" >
+      <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+      <span class="input-group-addon">Name</span>
+      <input matInput id="first-name" class="feedbackForm form-control" [(ngModel)]="firstName" type="text" formControlName="firstName">
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+      <span class="input-group-addon">Email</span>
+        <input name="email" type="email" class="form-control">
+         </div>
+      </div>
+    </div>
+    
+     <div class="pinfo">Rate our overall services</div>
+      
+    
+    <div class="form-group">
+      <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+      <span class="input-group-addon">Rate</span>
+      <select matInput id="rate" class = "feedbackForm" class="form-control" [(ngModel)]="rate" formControlName="rate">
+          <option value="1star">1 (Poor)</option>
+          <option value="2stars">2 (Fair)</option>
+          <option value="3stars">3 (Satisfactory)</option>
+          <option value="4stars">4 (Good)</option>
+          <option value="5stars">5 (Excellent)</option>
+        </select>
+        </div>
+      </div>
+    </div>
+    
+     <div class="pinfo">Write your feedback</div>
+      
+    
+    <div class="form-group">
+      <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+      <span class="input-group-addon">Review</span>
+      
+
+      <textarea class="feedbackForm" matInput id="review" rows="3" cols="100" [(ngModel)]="review" formControlName="review"></textarea> 
+     
+        </div>
+      </div>
+    </div>
+    
+     <button class="registrationBtn" type="submit">Submit</button>
+    
+    </form>
+    
+</div>
+
+<div>
+  <!-- <ul *ngFor ="let review of rev let i = index">
+      <li>{{review.firstName}}
+          <td>
+          <label for="review"><b>Review : </b></label>
+          </td>
+          
+   <td>
+          <textarea class="feedbackForm" matInput id="review" type="review" rows=3 value={{review.review}} disabled></textarea> 
+          <button mat-button color="warn" (click)="onDelete(review._id)">DELETE</button>
+          <button mat-button color="accent" [routerLink]="['/editReview', review._id]">UPDATE</button>
+      </td>
+      </li>
+  </ul> -->
+
+
+
+</div> 
+
+
+

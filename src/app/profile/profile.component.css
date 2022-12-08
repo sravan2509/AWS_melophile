@@ -1,0 +1,82 @@
+.myProfile{
+    color: #6a6a6a;
+    border-bottom: 1px solid black;
+    margin-top: 4%;
+    width: 48%;
+}
+
+.myProfile td {
+    padding: 16px 16px 16px 0px;
+}
+
+.myProfileData{
+    color: black;
+}
+
+.profileContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileTitle{
+    margin: 10% 0 0 0;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.profileSubTitle{
+    margin: 4% 51% 0 0;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.myProfileEditBtn{
+    background-color: #63C4ED;
+    color: white;
+    -webkit-text-decoration: solid;
+    text-decoration: solid;
+    padding: 12px 21px;
+    margin: 2% 0 0 76%;
+    width: 24%;
+}
+
+.myProfileDeleteBtn{
+    background-color: red;
+    color: white;
+    -webkit-text-decoration: solid;
+    text-decoration: solid;
+    padding: 12px 21px;
+    margin: 2% 0 0 76%;
+    width: 24%;
+}
+
+.registrationForm{
+    margin-left: 4%;
+    }
+    
+    .registrationFormLabel{
+    width: 145%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    }
+    
+    .registrationLogoImage{
+    width: 20%;
+    margin-left: 26%;
+    }
+    
+    .registrationBtn{
+    background-color: #63C4ED;
+    color: white;
+    text-decoration: solid;
+    padding: 16px 22px;
+    margin: 8px 0;
+    width: 100%;
+    }
+
+    .logoImage{
+        margin-left: 30%;
+    }

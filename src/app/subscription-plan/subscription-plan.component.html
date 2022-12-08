@@ -1,0 +1,111 @@
+<div class="sideNavBar" style="text-align:left">
+    <a href="/Open">Home</a>
+    <a href="/playlists">Playlists</a>
+    <a href="/subscriptions">Subscription</a>
+    <a href="/reviews">Reviews</a>
+</div>
+
+
+<html>
+    <head>
+    <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    td, th {
+      border: 1px solid ;
+      text-align: left;
+      padding: 10px;
+    }
+    td:hover {background-color:rgb(104, 75, 184);}
+
+    form, h2,div {
+       text-align: center;
+    }
+
+    p {
+      text-align : center;
+    }
+
+    </style>
+    </head>
+    <body>
+    <br><br><br><br><br>
+
+    <h2>Subscription Plans</h2>
+    <br>
+    <table>
+      <tr>
+        <th></th>
+        <th><button mat-raised-button color="primary">Standard</button></th>
+        <th><button mat-raised-button color="primary">Premium</button></th>
+      </tr>
+      <tr>
+        <td>Access to songs</td>
+        <td>Most of them</td>
+        <td>All</td>
+      </tr>
+      <tr>
+        <td>Music quality</td>
+        <td>Good</td>
+        <td>Best</td>
+      </tr>
+      <tr>
+        <td>Multiple logins</td>
+        <td>Not available</td>
+        <td>Available</td>
+      </tr>
+      <tr>
+        <td>Location Services</td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Reviews</td>
+        <td>View Ratings</td>
+        <td>View Ratings and Comments</td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td>Free</td>
+        <td>$2.99/month</td>
+      </tr>
+    </table>
+
+    <br><br>
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <span *ngIf="!isSubscribed()">
+    <label for="plan">Choose a plan: </label>
+    <input id="plan" type="radio" formControlName="plan" [(ngModel)]="mysubscription" value="standard" name="plan">
+    <label for="standard">Standard</label>
+    <input type="radio" id="standard" formControlName="plan" [(ngModel)]="mysubscription" value="premium" name="plan">
+    <label for="premium">Premium</label><br><br>
+
+    <button type="submit" (click)="addSubscription()" mat-raised-button color="primary">Subscribe</button><br><br>
+    </span>
+
+    <span  style="color:green;"  *ngIf="isSubscribed()">
+      <p>Congratulations you have been subscribed to {{subscribed}} </p> <br> <br>
+    </span>
+    <span *ngIf="subscribed =='premium'">
+    <p>Stay with standard ->
+    <button type="button" (click)="updateSubscription('standard')"   value="standard" mat-raised-button color="primary">Standard</button></p><br>
+    </span>
+    <span *ngIf="subscribed =='standard'">
+    <p>Update to Premium ->
+    <button type="button" (click)="updateSubscription('premium')" value="premium" mat-raised-button color="primary">Update to Premium</button></p><br><br>
+    </span>
+    <br><br><br>
+
+    <span  *ngIf="isSubscribed()">
+    <p>Don't like Tune-In?<button (click) ="deleteSubscription() "type="submit" mat-raised-button color="primary">Unsubscribe</button></p><br><br>
+    </span>
+
+    </form>
+    </body>
+    </html>

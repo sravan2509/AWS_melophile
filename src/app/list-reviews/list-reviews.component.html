@@ -1,0 +1,81 @@
+<!-- <div>
+    <ul *ngFor ="let review of rev let i = index">
+        <li>{{review.firstName}}
+            <td>
+            <label for="review"><b>Review : </b></label>
+            </td>
+            <!-- <input matInput id="review" class = "feedbackForm" type="review" placeholder= {{review.review}} formControlName="review" required> -->
+    <!---- <td>
+            <textarea class="feedbackForm" matInput id="review" type="review" rows=3 value={{review.review}} disabled></textarea> 
+            <button mat-button color="warn" (click)="onDelete(review._id)">DELETE</button>
+            <button mat-button color="accent" [routerLink]="['/editReview', review._id]">UPDATE</button>
+        </td>
+        </li>
+    </ul>
+</div> -->
+
+<div class="sideNavBar">
+    <a href="/Open">Home</a>
+    <a href="/playlists">Playlists</a>
+    <a href="/subscriptions">Subscription</a>
+    <a href="/reviews">Reviews</a>
+</div>
+
+<div class="content">
+
+
+    
+    <h3 id="fh2">HERE ARE SOME OF OUR VALUABLE RATINGS AND REVIEWS!</h3>
+    <h6 id="fh6">Your review helped us to ensure a top quality customer service to all of our users.</h6>
+    
+    <table>
+        <tr *ngFor ="let review of rev let i = index">
+            <td>
+                {{review.firstName}}              
+            </td>
+            <td>
+                <input matInput id="first-name" class="feedbackForm form-control" type="text" value={{review.review}} disabled>
+                
+            </td>
+            <td *ngIf=" i >= rev.length-1">
+                <button mat-button color="accent" class="myReviewDeleteBtn" [routerLink]="['/editReview', rev[rev.length-1]._id]">Edit</button>
+                <button mat-button color="warn" class="myReviewEditBtn" (click)="onDelete(rev[rev.length-1]._id)">Delete</button>
+            </td>
+        </tr>
+    </table>
+  
+    
+</div>
+
+<div>
+  <!-- <ul *ngFor ="let review of rev let i = index">
+      <li>{{review.firstName}}
+          <td>
+          <label for="review"><b>Review : </b></label>
+          </td>
+          
+   <td>
+          <textarea class="feedbackForm" matInput id="review" type="review" rows=3 value={{review.review}} disabled></textarea> 
+          <button mat-button color="warn" (click)="onDelete(review._id)">DELETE</button>
+          <button mat-button color="accent" [routerLink]="['/editReview', review._id]">UPDATE</button>
+      </td>
+      </li>
+  </ul> -->
+
+  <!-- <div>
+    <li>{{users[users.length-1].review.firstName}}
+    <textarea class="feedbackForm" matInput id="review" type="review" rows=3 value={{rev[rev.length-1].review}} disabled></textarea> 
+
+    <td><button mat-button color="accent" class="myReviewDeleteBtn" [routerLink]="['/editReview', rev[rev.length-1]._id]">Edit</button></td>
+    <td><button mat-button color="warn" class="myReviewEditBtn" (click)="onDelete(rev[rev.length-1]._id)">Delete</button></td>
+    </li>
+
+    
+    
+</div> -->
+
+</div> 
+
+
+
+
